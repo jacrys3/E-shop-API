@@ -20,5 +20,5 @@ from e_shop.views import CreateProductView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('create-product/', CreateProductView.as_view(), name='create-product'),
+    path('api/create-product/', CreateProductView.as_view(), name='create-product'),
 ]

@@ -36,7 +36,8 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('category', models.ForeignKey(null=True,
-                                               on_delete=django.db.models.deletion.SET_NULL, to='e_shop.category')),
+                                               on_delete=django.db.models.deletion.SET_NULL,
+                                               to='e_shop.category')),
             ],
         ),
     ]

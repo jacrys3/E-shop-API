@@ -8,8 +8,18 @@ class ListProductsViewTestCase(TestCase):
     def setUp(self):
         """Create the client and products for testing GET requests to ProductView."""
         self.client = APIClient()
-        self.product1 = Product.objects.create(name='New Product 1', description='Test1', price=1.00, category=None)
-        self.product2 = Product.objects.create(name='New Product 2', description='Test2', price=2.00, category=None)
+        self.product1 = Product.objects.create(
+            name='New Product 1',
+            description='Test1',
+            price=1.00,
+            category=None,
+        )
+        self.product2 = Product.objects.create(
+            name='New Product 2',
+            description='Test2',
+            price=2.00,
+            category=None,
+        )
 
     def test_list_product_success(self):
         """Verifies that a GET request to ProductView successfully returns all products."""
@@ -86,8 +96,13 @@ class ListProductViewTestCase(TestCase):
     def setUp(self):
         """Create the client and product for testing GET requests to ChangeProductView."""
         self.client = APIClient()
-        self.product = Product.objects.create(name='New Product', description='Test', price=10.00, category=None)
-    
+        self.product = Product.objects.create(
+            name='New Product',
+            description='Test',
+            price=10.00,
+            category=None,
+        )
+
     def test_list_product_success(self):
         """Verifies that a GET request to ChangeProductView successfully lists a product."""
         product_id = self.product.id
@@ -105,7 +120,7 @@ class ListProductViewTestCase(TestCase):
             'price': '10.00',
             'category': None,
         }
-        
+
         self.assertEqual(response_data, product_data)
 
 
@@ -113,7 +128,12 @@ class UpdateProductViewTestCase(TestCase):
     def setUp(self):
         """Create the client and product for testing PUT requests to ChangeProductView."""
         self.client = APIClient()
-        self.product = Product.objects.create(name='New Product', description='Test', price=10.00, category=None)
+        self.product = Product.objects.create(
+            name='New Product',
+            description='Test',
+            price=10.00,
+            category=None,
+        )
 
     def test_update_product_success(self):
         """Verifies that a PUT request to ChangeProductView successfully updates a product."""
@@ -147,7 +167,12 @@ class DeleteProductViewTestCase(TestCase):
     def setUp(self):
         """Create the client and product for testing DELETE requests to ChangeProductView."""
         self.client = APIClient()
-        self.product = Product.objects.create(name='New Product', description='Test', price=10.00, category=None)
+        self.product = Product.objects.create(
+            name='New Product',
+            description='Test',
+            price=10.00,
+            category=None,
+        )
 
     def test_delete_product_success(self):
         """Verifies that a DELETE request to ChangeProductView successfully deletes a product."""

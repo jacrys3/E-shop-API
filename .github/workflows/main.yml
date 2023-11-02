@@ -44,3 +44,4 @@ jobs:
 
     - name: Run Django Tests
       run: python manage.py test
+      working-directory: e_shop_api

@@ -46,6 +46,11 @@ class ListProductViewTestCase(TestCase):
         """Verifies that a GET request to ProductView successfully returns all products."""
         response = self.client.get('/api/products/')
 
-        print(response.data) # check if data is correct
+        response_data = response.data[0]
 
-        self.assertEquals(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        self.assertEqual(response_data['name'], 'New Product')
+        self.assertEqual(response_data['description'], 'Test')
+        self.assertEqual(response_data['price'], '10.00')
+        self.assertEqual(response_data['category'], None)

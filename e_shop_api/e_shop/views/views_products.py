@@ -14,7 +14,7 @@ class ProductView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
 
 
-class ProductChangeView(generics.RetrieveUpdateDestroyAPIView):
+class ChangeProductView(generics.RetrieveUpdateDestroyAPIView):
     """
     List, update and delete a single product.
 

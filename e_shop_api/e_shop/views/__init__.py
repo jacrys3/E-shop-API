@@ -1,1 +1,1 @@
-from .views_products import ProductView, ProductChangeView
+from .views_products import ProductView, ChangeProductView

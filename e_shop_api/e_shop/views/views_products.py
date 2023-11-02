@@ -14,13 +14,13 @@ class ProductView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
 
 
-class ProductChangeView(generics.RetrieveUpdateDestroyAPIView):
+class ChangeProductView(generics.RetrieveUpdateDestroyAPIView):
     """
-    Update and delete products.
+    List, update and delete a single product.
 
     This view allows you to list the current product with a GET request,
-    update existing products with a PUT request,
-    and delete existing products with a DELETE request.
+    update the existing product with a PUT request,
+    and delete the existing product with a DELETE request.
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

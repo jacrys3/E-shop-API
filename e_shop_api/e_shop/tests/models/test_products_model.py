@@ -1,6 +1,7 @@
 from django.test import TestCase
 from e_shop.models import Product
 
+
 class ProductModelTests(TestCase):
     def test_product_creation(self):
         product = Product(

@@ -28,4 +28,3 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
-      working-directory: /E-shop-api/e_shop_api

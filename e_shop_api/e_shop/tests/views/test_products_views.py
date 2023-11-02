@@ -82,7 +82,31 @@ class CreateProductViewTestCase(TestCase):
         self.assertEqual(Product.objects.count(), 0)
 
 
-# class ListProductViewTestCase(TestCase):
+class ListProductViewTestCase(TestCase):
+    def setUp(self):
+        """Create the client and product for testing GET requests to ChangeProductView."""
+        self.client = APIClient()
+        self.product = Product.objects.create(name='New Product', description='Test', price=10.00, category=None)
+    
+    def test_list_product_success(self):
+        """Verifies that a GET request to ChangeProductView successfully lists a product."""
+        product_id = self.product.id
+
+        response = self.client.get(f'/api/products/{product_id}/')
+
+        response_data = response.data
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        product_data = {
+            'id': product_id,
+            'name': 'New Product',
+            'description': 'Test',
+            'price': '10.00',
+            'category': None,
+        }
+        
+        self.assertEqual(response_data, product_data)
 
 
 class UpdateProductViewTestCase(TestCase):
